@@ -1,6 +1,7 @@
 {
   "id": "obsidian-to-notionnext",
   "name": "Obsidian shared to NotionNext",
+  "version": "0.02",
   "minAppVersion": "0.0.1",
   "description": "This is a  plugin for Obsidian. This plugin share obsidian md file to notion with notion api for NotionNext web deploy.",
   "author": "jxpeng98",
