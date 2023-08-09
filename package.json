@@ -1,8 +1,7 @@
 {
-  "name": "obsidian-to-notion",
-  "version": "0.7.6",
+  "name": "obsidian-to-notionnext",
   "type": "module",
-  "description": "This is a  plugin for Obsidian. This plugin share obsidian md  file to notion with notion api",
+  "description": "This is a plugin for Obsidian. This plugin share obsidian md file to notion with notion api for NotionNext web deploy.",
   "main": "main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",

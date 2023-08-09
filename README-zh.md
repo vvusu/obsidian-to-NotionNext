@@ -1,3 +1,70 @@
+# Obsidian to NotionNext
+感谢[原作者](https://github.com/EasyChris/obsidian-to-notion)开发出了这么好用的插件，能够将obsidian同步到notion。 但是原仓库只能同步Name和Tags信息，如果像我一样通过[NotionNext](https://github.com/tangly1024/NotionNext)来搭建自己的网页，就有一些局限性。每次导入之后都需要进行大量的修改。
+
+所以我在[原作者](https://github.com/EasyChris/obsidian-to-notion)的基础之上，增加了匹配[NotionNext](https://github.com/tangly1024/NotionNext)模板的功能。这样可以直接在Obsidian编辑，整理好之后一键发布。
+
+## 使用方式
+### 注意事项
+本插件现在暂时只能用于匹配[NotionNext](https://github.com/tangly1024/NotionNext)。如果你不是使用这个模板，你只会无限返回`error 400`. 
+
+所以没有NotionNext需求的，请使用原作者的[Obsidian-to-notion](https://github.com/EasyChris/obsidian-to-notion)
+
+### 准备安装
+在安装插件之前，你必须配置好了以下内容：
+1. 你的NotionNext数据库。
+2. 根据原作者的readme.md，配置好了Notion API，并且已经和你的NotionNext仓库关联。
+3. NotionNext Database ID
+4. 你的NotionNext数据库有如下内容：
+    - type
+    - title
+    - slug
+    - category
+    - tags
+    - date
+    - status
+    - summary
+    - password
+    - icon
+   **如果你是直接复制的NotionNext的模板，这些内容应该已经有了。我在原作者的基础之上对本插件的内容进行了更改，所以你只需要保证你的数据库有如上内容，并且所有的字母都是小写！！！**
+**⚠️⚠️⚠️:表头全部小写！！！顺序无所谓！**
+
+### 安装插件
+1. 关闭Obsidian
+2. 从Release下载插件文件，解压到你的obsidian插件目录下。
+3. 重新打开Obsidian，进入设置，启用插件。
+4. 在设置中，找到Obsidian to NotionNext，填入你的NotionNext Database ID 和 API token。
+
+### 使用插件
+在仓库中我上传了一个模板，你可以直接复制到你的模板文件夹中。然后使用Obsidian的模板功能一键生成新笔记。
+
+如果你不想使用模板，你也可以直接在Obsidian中创建一个新的文件，然后复制下边的内容。然后保存。
+```markdown
+---
+type: Post # Post or Page, the default is Post
+slug: test # slug for url, the default is 
+stats: Draft # Draft, Invisible, Published
+category: test 
+summary: this is a summary for test post
+icon: fa-solid fa-camera # you can ignore this 
+password: "1234" # if you donot want to set password, you can delete this line 
+tags:
+  - test  # tags for post 
+  - web # add more tags if you want
+---
+
+
+Contents Below
+
+```
+模板使用如下：
+![](https://img.jxpeng.dev/2023/08/5ba5e7aeb86650c060c620786371717c.mp4)
+
+**插件预览如下**
+![](https://img.jxpeng.dev/2023/08/7edefe36899b7431a65db891f429a137.mp4)
+
+
+---
+**以下为原README.md**
 # Obsidian to Notion
 [![](https://github.com/Easychris/obsidian-to-notion/actions/workflows/CI.yml/badge.svg)](https://github.com/Easychris/obsidian-to-notion/actions/workflows/CI.yml)
 [![Release Obsidian plugin](https://github.com/Easychris/obsidian-to-notion/actions/workflows/release.yml/badge.svg)](https://github.com/Easychris/obsidian-to-notion/actions/workflows/release.yml)

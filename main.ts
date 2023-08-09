@@ -45,7 +45,7 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon(
 			"notion-logo",
-			"Share to notion",
+			"Share to NotionNext",
 			async (evt: MouseEvent) => {
 				// Called when the user clicks the icon.
 				this.upload();
@@ -57,8 +57,8 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 		// statusBarItemEl.setText("share to notion");
 
 		this.addCommand({
-			id: "share-to-notion",
-			name: "share to notion",
+			id: "share-to-notionnext",
+			name: "share to notionnext",
 			editorCallback: async (editor: Editor, view: MarkdownView) => {
 				this.upload()
 			},
@@ -171,7 +171,7 @@ class SampleSettingTab extends PluginSettingTab {
 		containerEl.empty();
 
 		containerEl.createEl("h2", {
-			text: "Settings for obsidian to notion plugin.",
+			text: "Settings for obsidian to NotionNext plugin.",
 		});
 
 		new Setting(containerEl)

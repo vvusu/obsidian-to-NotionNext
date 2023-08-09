@@ -1,3 +1,69 @@
+# Obsidian to NotionNext
+Thanks to the [original author](https://github.com/EasyChris/obsidian-to-notion) for developing such a useful plugin that can synchronize Obsidian to Notion. However, the original repository can only sync Name and Tags information. For those like me who use [NotionNext](https://github.com/tangly1024/NotionNext) to set up their website, this presents some limitations. Every time I import, I need to make a lot of modifications.
+
+Thus, based on the [original author's work](https://github.com/EasyChris/obsidian-to-notion), I've added a feature to match the [NotionNext](https://github.com/tangly1024/NotionNext) template. This way, you can edit directly in Obsidian and publish with a single click after organizing.
+
+## How to Use
+### Precautions
+For now, this plugin is exclusively for [NotionNext](https://github.com/tangly1024/NotionNext). If you're not using this template, you'll keep receiving `error 400`.
+
+For those without a NotionNext requirement, please use the original [Obsidian-to-notion](https://github.com/EasyChris/obsidian-to-notion).
+
+### Pre-Installation Steps
+Before installing the plugin, you must have set up the following:
+1. Your NotionNext database.
+2. According to the original author's readme.md, set up the Notion API, and it should already be associated with your NotionNext repository.
+3. NotionNext Database ID
+4. Your NotionNext database should have the following contents:
+    - type
+    - title
+    - slug
+    - category
+    - tags
+    - date
+    - status
+    - summary
+    - password
+    - icon
+      **If you've directly copied the NotionNext template, these contents should already exist. I've made changes to this plugin based on the original author's work. All you need to ensure is that your database has the above content, and every letter is in lowercase!!!**
+      **⚠️⚠️⚠️: All headers are in lowercase!!! The order doesn't matter!**
+
+### Plugin Installation
+1. Close Obsidian.
+2. Download the plugin file from Release and unzip it into your Obsidian plugin directory.
+3. Re-open Obsidian, go to settings, and enable the plugin.
+4. In the settings, find Obsidian to NotionNext, and enter your NotionNext Database ID and API token.
+
+### How to Use
+### Using the Plugin
+In the repository, I have uploaded a template which you can directly copy into your template folder. After that, use Obsidian's template feature to create a new note with one click.
+
+If you don't want to use the template, you can also directly create a new file in Obsidian and then copy the content below. Then save it.
+```markdown
+---
+type: Post # Post or Page, the default is Post
+slug: test # slug for url, the default is 
+stats: Draft # Draft, Invisible, Published
+category: test 
+summary: this is a summary for test post
+icon: fa-solid fa-camera # you can ignore this 
+password: "1234" # if you donot want to set password, you can delete this line 
+tags:
+  - test  # tags for post 
+  - web # add more tags if you want
+---
+
+Contents Below
+```
+Usage of the template is as follows:
+![](https://img.jxpeng.dev/2023/08/5ba5e7aeb86650c060c620786371717c.mp4)
+
+**Plugin preview is shown below**
+![](https://img.jxpeng.dev/2023/08/7edefe36899b7431a65db891f429a137.mp4)
+
+---
+**Original README.md**
+
 # Obsidian to Notion
 [![](https://github.com/Easychris/obsidian-to-notion/actions/workflows/CI.yml/badge.svg)](https://github.com/Easychris/obsidian-to-notion/actions/workflows/CI.yml)
 [![Release Obsidian plugin](https://github.com/Easychris/obsidian-to-notion/actions/workflows/release.yml/badge.svg)](https://github.com/Easychris/obsidian-to-notion/actions/workflows/release.yml)
