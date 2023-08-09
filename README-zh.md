@@ -65,6 +65,8 @@ Contents Below
 
 ---
 **以下为原README.md**
+非常感谢原作者的开发，我只是在原作者的基础之上进行了修改，增加了一些功能。如果你觉得这个插件对你有帮助，可以给[原作者](https://github.com/EasyChris/obsidian-to-notion)一个star。
+
 # Obsidian to Notion
 [![](https://github.com/Easychris/obsidian-to-notion/actions/workflows/CI.yml/badge.svg)](https://github.com/Easychris/obsidian-to-notion/actions/workflows/CI.yml)
 [![Release Obsidian plugin](https://github.com/Easychris/obsidian-to-notion/actions/workflows/release.yml/badge.svg)](https://github.com/Easychris/obsidian-to-notion/actions/workflows/release.yml)

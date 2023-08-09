@@ -1,4 +1,5 @@
-# Obsidian to NotionNext
+# Obsidian to NotionNext 
+[中文文档](README-zh.md)
 Thanks to the [original author](https://github.com/EasyChris/obsidian-to-notion) for developing such a useful plugin that can synchronize Obsidian to Notion. However, the original repository can only sync Name and Tags information. For those like me who use [NotionNext](https://github.com/tangly1024/NotionNext) to set up their website, this presents some limitations. Every time I import, I need to make a lot of modifications.
 
 Thus, based on the [original author's work](https://github.com/EasyChris/obsidian-to-notion), I've added a feature to match the [NotionNext](https://github.com/tangly1024/NotionNext) template. This way, you can edit directly in Obsidian and publish with a single click after organizing.
@@ -56,13 +57,14 @@ tags:
 Contents Below
 ```
 Usage of the template is as follows:
-![](https://img.jxpeng.dev/2023/08/5ba5e7aeb86650c060c620786371717c.mp4)
+![](https://img.jxpeng.dev/2023/08/189384bf03c562030f4828343e1b7a6c.gif)
 
 **Plugin preview is shown below**
-![](https://img.jxpeng.dev/2023/08/7edefe36899b7431a65db891f429a137.mp4)
+![](https://img.jxpeng.dev/2023/08/6063dd06eea4ee6939b5058dd129a698.gif)
 
 ---
 **Original README.md**
+Many Thanks for the original author's work. I've only made some changes to the original author's work. If you find this plugin useful, please give the [original author](https://github.com/EasyChris/obsidian-to-notion) a star.
 
 # Obsidian to Notion
 [![](https://github.com/Easychris/obsidian-to-notion/actions/workflows/CI.yml/badge.svg)](https://github.com/Easychris/obsidian-to-notion/actions/workflows/CI.yml)
