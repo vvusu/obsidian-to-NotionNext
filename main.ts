@@ -119,7 +119,7 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 				nowFile,
 				tags,
 				type,
-				slug
+				slug,
 			};
 		} else {
 			new Notice(langConfig["open-file"]);

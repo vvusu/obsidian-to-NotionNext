@@ -63,7 +63,7 @@ export class Upload2Notion {
 					rich_text: [
 						{
 							text: {
-								content: slug || 'slug-1'
+								content: slug
 							}
 						}
 					]
@@ -89,7 +89,7 @@ export class Upload2Notion {
 					'Content-Type': 'application/json',
 					// 'User-Agent': 'obsidian.md',
 					'Authorization': 'Bearer ' + this.app.settings.notionAPI,
-					'Notion-Version': '2021-08-16',
+					'Notion-Version': '2022-06-28',
 				},
 				body: JSON.stringify(bodyString),
 			})
