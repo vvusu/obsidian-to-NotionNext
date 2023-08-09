@@ -28,13 +28,13 @@ export class Upload2Notion {
 
 	// 因为需要解析notion的block进行对比，非常的麻烦，
 	// 暂时就直接删除，新建一个page
-	async updatePage(notionID:string, title:string, allowTags:boolean, tags:string[], type:string, slug:string, childArr:any) {
+	async updatePage(notionID:string, title:string, allowTags:boolean, tags:string[], type:string, slug:string, stats:string, childArr:any) {
 		await this.deletePage(notionID)
-		const res = await this.createPage(title, allowTags, tags, type, slug, childArr)
+		const res = await this.createPage(title, allowTags, tags, type, slug, stats, childArr)
 		return res
 	}
 
-	async createPage(title:string, allowTags:boolean, tags:string[], type:string, slug:string, childArr: any) {
+	async createPage(title:string, allowTags:boolean, tags:string[], type:string, slug:string, stats:string, childArr: any) {
 		const bodyString:any = {
 			parent: {
 				database_id: this.app.settings.databaseID
@@ -67,6 +67,11 @@ export class Upload2Notion {
 							}
 						}
 					]
+				},
+				status: {
+					select: {
+						name: stats || 'Draft'
+					}
 				}
 			},
 			children: childArr,
@@ -99,7 +104,7 @@ export class Upload2Notion {
 		}
 	}
 
-	async syncMarkdownToNotion(title:string, allowTags:boolean, tags:string[], type:string, slug:string, markdown: string, nowFile: TFile, app:App, settings:any): Promise<any> {
+	async syncMarkdownToNotion(title:string, allowTags:boolean, tags:string[], type:string, slug:string, stats:string, markdown: string, nowFile: TFile, app:App, settings:any): Promise<any> {
 		let res:any
 		const yamlObj:any = yamlFrontMatter.loadFront(markdown);
 		const __content = yamlObj.__content
@@ -108,9 +113,9 @@ export class Upload2Notion {
 		const notionID = frontmasster ? frontmasster.notionID : null
 
 		if(notionID){
-				res = await this.updatePage(notionID, title, allowTags, tags, type, slug, file2Block);
+				res = await this.updatePage(notionID, title, allowTags, tags, type, slug, stats, file2Block);
 		} else {
-			 	res = await this.createPage(title, allowTags, tags, type, slug, file2Block);
+			 	res = await this.createPage(title, allowTags, tags, type, slug, stats, file2Block);
 		}
 		if (res.status === 200) {
 			await this.updateYamlInfo(markdown, nowFile, res, app, settings)

@@ -80,13 +80,13 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 					);
 					return;
 				}
-				const { markDownData, nowFile, tags, type, slug } =await this.getNowFileMarkdownContent(this.app);
+				const { markDownData, nowFile, tags, type, slug, stats } =await this.getNowFileMarkdownContent(this.app);
 
 
 				if (markDownData) {
 					const { basename } = nowFile;
 					const upload = new Upload2Notion(this);
-					const res = await upload.syncMarkdownToNotion(basename, allowTags, tags, type, slug, markDownData, nowFile, this.app, this.settings)
+					const res = await upload.syncMarkdownToNotion(basename, allowTags, tags, type, slug, stats, markDownData, nowFile, this.app, this.settings)
 					if(res.status === 200){
 						new Notice(`${langConfig["sync-success"]}${basename}`)
 					}else {
@@ -101,6 +101,7 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 		let tags = []
 		let type = ''
 		let slug = ''
+		let stats = ''
 
 		const FileCache = app.metadataCache.getFileCache(nowFile)
 		try {
@@ -108,6 +109,7 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 				tags = FileCache.frontmatter.tags;
 				type = FileCache.frontmatter.type;
 				slug = FileCache.frontmatter.slug;
+				stats = FileCache.frontmatter.stats;
 			}
 		} catch (error) {
 			new Notice(langConfig["set-tags-fail"]);
@@ -120,6 +122,7 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 				tags,
 				type,
 				slug,
+				stats,
 			};
 		} else {
 			new Notice(langConfig["open-file"]);
