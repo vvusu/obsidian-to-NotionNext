@@ -80,13 +80,13 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 					);
 					return;
 				}
-				const { markDownData, nowFile, tags, type, slug, stats } =await this.getNowFileMarkdownContent(this.app);
+				const { markDownData, nowFile, tags, type, slug, stats, category, summary } =await this.getNowFileMarkdownContent(this.app);
 
 
 				if (markDownData) {
 					const { basename } = nowFile;
 					const upload = new Upload2Notion(this);
-					const res = await upload.syncMarkdownToNotion(basename, allowTags, tags, type, slug, stats, markDownData, nowFile, this.app, this.settings)
+					const res = await upload.syncMarkdownToNotion(basename, allowTags, tags, type, slug, stats, category, summary, markDownData, nowFile, this.app, this.settings)
 					if(res.status === 200){
 						new Notice(`${langConfig["sync-success"]}${basename}`)
 					}else {
@@ -102,6 +102,8 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 		let type = ''
 		let slug = ''
 		let stats = ''
+		let category = ''
+		let summary = ''
 
 		const FileCache = app.metadataCache.getFileCache(nowFile)
 		try {
@@ -110,6 +112,8 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 				type = FileCache.frontmatter.type;
 				slug = FileCache.frontmatter.slug;
 				stats = FileCache.frontmatter.stats;
+				category = FileCache.frontmatter.category;
+				summary = FileCache.frontmatter.summary;
 			}
 		} catch (error) {
 			new Notice(langConfig["set-tags-fail"]);
@@ -123,6 +127,8 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 				type,
 				slug,
 				stats,
+				category,
+				summary,
 			};
 		} else {
 			new Notice(langConfig["open-file"]);
