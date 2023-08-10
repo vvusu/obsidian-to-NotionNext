@@ -1,4 +1,4 @@
-# Obsidian to NotionNext
+# Obsidian share to NotionNext
 感谢[原作者](https://github.com/EasyChris/obsidian-to-notion)开发出了这么好用的插件，能够将obsidian同步到notion。 但是原仓库只能同步Name和Tags信息，如果像我一样通过[NotionNext](https://github.com/tangly1024/NotionNext)来搭建自己的网页，就有一些局限性。每次导入之后都需要进行大量的修改。
 
 所以我在[原作者](https://github.com/EasyChris/obsidian-to-notion)的基础之上，增加了匹配[NotionNext](https://github.com/tangly1024/NotionNext)模板的功能。这样可以直接在Obsidian编辑，整理好之后一键发布。
