@@ -26,12 +26,36 @@ export class Upload2Notion {
 		return response;
 	}
 
+	async getDataBase(databaseID:string){
+		const response = await requestUrl({
+			url: `https://api.notion.com/v1/databases/${databaseID}`,
+			method: 'GET',
+			headers: {
+				'Authorization': 'Bearer ' + this.app.settings.notionAPI,
+				'Notion-Version': '2022-06-28',
+			}
+		}
+		)
+
+        // Check if cover is present in the JSON response and then get the URL
+        if (response.json.cover && response.json.cover.external) {
+            return response.json.cover.external.url;
+        } else {
+            return null;  // or some other default value, if you prefer
+        }
+	}
+
 	// 因为需要解析notion的block进行对比，非常的麻烦，
 	// 暂时就直接删除，新建一个page
 	async updatePage(notionID:string, title:string, allowTags:boolean, emoji:string, cover:string, tags:string[], type:string, slug:string, stats:string, category:string, summary:string, paword:string, favicon:string, datetime:string, childArr:any) {
 		await this.deletePage(notionID)
-		const res = await this.createPage(title, allowTags, emoji,cover, tags, type, slug, stats, category, summary, paword, favicon, datetime, childArr)
-		return res
+		const databasecover = await this.getDataBase(this.app.settings.databaseID)
+
+		if (cover == null) {
+			cover = databasecover
+		}
+
+		const res = await this.createPage(title, allowTags, emoji, cover, tags, type, slug, stats, category, summary, paword, favicon, datetime, childArr)
 	}
 
 	async createPage(title:string, allowTags:boolean, emoji:string, cover:string, tags:string[], type:string, slug:string, stats:string, category:string, summary:string, pawrod:string, favicon:string, datetime:string, childArr: any) {
@@ -41,11 +65,6 @@ export class Upload2Notion {
 			},
 			icon: {
 				emoji: emoji || '📜'
-			},
-			cover: {
-				external: {
-					url: cover || ''
-				}
 			},
 			properties: {
 				title: {
@@ -121,15 +140,23 @@ export class Upload2Notion {
 			},
 			children: childArr,
 		}
-
-		if(this.app.settings.bannerUrl) {
+		if (cover) {
 			bodyString.cover = {
 				type: "external",
 				external: {
-					url: this.app.settings.bannerUrl
+					url: cover
 				}
 			}
 		}
+
+        if (!bodyString.cover && this.app.settings.bannerUrl) {
+            bodyString.cover = {
+                type: "external",
+                external: {
+                    url: this.app.settings.bannerUrl
+                }
+            }
+        }
 
 		try {
 			const response = await requestUrl({
