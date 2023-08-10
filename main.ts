@@ -1,18 +1,7 @@
-import {
-	App,
-	Editor,
-	MarkdownView,
-	Modal,
-	Notice,
-	Plugin,
-	PluginSettingTab,
-	Setting,
-	normalizePath
-} from "obsidian";
-import {addIcons}  from 'icon';
-import { Upload2Notion } from "Upload2Notion";
+import {App, Editor, MarkdownView, Notice, Plugin, PluginSettingTab, Setting} from "obsidian";
+import {addIcons} from 'icon';
+import {Upload2Notion} from "Upload2Notion";
 import {NoticeMConfig} from "Message";
-import { CLIENT_RENEG_LIMIT } from "tls";
 
 
 // Remember to rename these classes and interfaces!
@@ -48,7 +37,7 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 			"Share to NotionNext",
 			async (evt: MouseEvent) => {
 				// Called when the user clicks the icon.
-				this.upload();
+				await this.upload();
 			}
 		);
 
@@ -60,7 +49,7 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 			id: "share-to-notionnext",
 			name: "share to notionnext",
 			editorCallback: async (editor: Editor, view: MarkdownView) => {
-				this.upload()
+				await this.upload()
 			},
 		});
 
@@ -184,15 +173,14 @@ class SampleSettingTab extends PluginSettingTab {
 			.setName("Notion API Token")
 			.setDesc("It's a secret")
 			.addText((text) =>{
-				let t = text
-				.setPlaceholder("Enter your Notion API Token")
-				.setValue(this.plugin.settings.notionAPI)
-				.onChange(async (value) => {
-					this.plugin.settings.notionAPI = value;
-					await this.plugin.saveSettings();
-				})
 				// t.inputEl.type = 'password'
-				return t
+				return text
+					.setPlaceholder("Enter your Notion API Token")
+					.setValue(this.plugin.settings.notionAPI)
+					.onChange(async (value) => {
+						this.plugin.settings.notionAPI = value;
+						await this.plugin.saveSettings();
+					})
 			});
 
 
@@ -200,15 +188,14 @@ class SampleSettingTab extends PluginSettingTab {
 			.setName("Database ID")
 			.setDesc("It's a secret")
 			.addText((text) => {
-				let t = text
-				.setPlaceholder("Enter your Database ID")
-				.setValue(this.plugin.settings.databaseID)
-				.onChange(async (value) => {
-					this.plugin.settings.databaseID = value;
-					await this.plugin.saveSettings();
-				})
-				// t.inputEl.type = 'password'
-				return t
+					// t.inputEl.type = 'password'
+				return text
+					.setPlaceholder("Enter your Database ID")
+					.setValue(this.plugin.settings.databaseID)
+					.onChange(async (value) => {
+						this.plugin.settings.databaseID = value;
+						await this.plugin.saveSettings();
+					})
 			}
 
 			);

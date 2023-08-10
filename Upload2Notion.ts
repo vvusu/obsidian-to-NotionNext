@@ -1,9 +1,10 @@
-import { Notice, requestUrl,TFile,normalizePath, App } from "obsidian";
-import { Client } from "@notionhq/client";
-import { markdownToBlocks,  } from "@tryfabric/martian";
+import {App, Notice, requestUrl, TFile} from "obsidian";
+import {Client} from "@notionhq/client";
+import {markdownToBlocks,} from "@tryfabric/martian";
 import * as yamlFrontMatter from "yaml-front-matter";
 import * as yaml from "yaml"
 import MyPlugin from "main";
+
 export class Upload2Notion {
 	app: MyPlugin;
 	notion: Client;
@@ -13,7 +14,7 @@ export class Upload2Notion {
 	}
 
 	async deletePage(notionID:string){
-		const response = await requestUrl({
+		return await requestUrl({
 			url: `https://api.notion.com/v1/blocks/${notionID}`,
 			method: 'DELETE',
 			headers: {
@@ -23,7 +24,6 @@ export class Upload2Notion {
 			},
 			body: ''
 		})
-		return response;
 	}
 
 	async getDataBase(databaseID:string){
@@ -49,13 +49,14 @@ export class Upload2Notion {
 	// 暂时就直接删除，新建一个page
 	async updatePage(notionID:string, title:string, allowTags:boolean, emoji:string, cover:string, tags:string[], type:string, slug:string, stats:string, category:string, summary:string, paword:string, favicon:string, datetime:string, childArr:any) {
 		await this.deletePage(notionID)
+
 		const databasecover = await this.getDataBase(this.app.settings.databaseID)
 
 		if (cover == null) {
 			cover = databasecover
 		}
 
-		const res = await this.createPage(title, allowTags, emoji, cover, tags, type, slug, stats, category, summary, paword, favicon, datetime, childArr)
+		return await this.createPage(title, allowTags, emoji, cover, tags, type, slug, stats, category, summary, paword, favicon, datetime, childArr)
 	}
 
 	async createPage(title:string, allowTags:boolean, emoji:string, cover:string, tags:string[], type:string, slug:string, stats:string, category:string, summary:string, pawrod:string, favicon:string, datetime:string, childArr: any) {
@@ -159,7 +160,7 @@ export class Upload2Notion {
         }
 
 		try {
-			const response = await requestUrl({
+			return await requestUrl({
 				url: `https://api.notion.com/v1/pages`,
 				method: 'POST',
 				headers: {
@@ -170,7 +171,6 @@ export class Upload2Notion {
 				},
 				body: JSON.stringify(bodyString),
 			})
-			return response;
 		} catch (error) {
 				new Notice(`network error ${error}`)
 		}
