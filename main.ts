@@ -80,12 +80,12 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 					);
 					return;
 				}
-				const { markDownData, nowFile, tags, type, slug, stats, category, summary, paword, favicon, datetime } =await this.getNowFileMarkdownContent(this.app);
+				const { markDownData, nowFile, emoji, cover, tags, type, slug, stats, category, summary, paword, favicon, datetime } =await this.getNowFileMarkdownContent(this.app);
 
 				if (markDownData) {
 					const { basename } = nowFile;
 					const upload = new Upload2Notion(this);
-					const res = await upload.syncMarkdownToNotion(basename, allowTags, tags, type, slug, stats, category, summary, paword, favicon, datetime, markDownData, nowFile, this.app, this.settings)
+					const res = await upload.syncMarkdownToNotion(basename, allowTags, emoji, cover, tags, type, slug, stats, category, summary, paword, favicon, datetime, markDownData, nowFile, this.app, this.settings)
 					if(res.status === 200){
 						new Notice(`${langConfig["sync-success"]}${basename}`)
 					}else {
@@ -97,6 +97,8 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 	async getNowFileMarkdownContent(app: App) {
 		const nowFile = app.workspace.getActiveFile();
 		const { allowTags } = this.settings;
+		let emoji = ''
+		let cover = ''
 		let tags = []
 		let type = ''
 		let slug = ''
@@ -110,6 +112,8 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 		const FileCache = app.metadataCache.getFileCache(nowFile)
 		try {
 			if(allowTags) {
+				emoji = FileCache.frontmatter.titleicon;
+				cover = FileCache.frontmatter.coverurl;
 				tags = FileCache.frontmatter.tags;
 				type = FileCache.frontmatter.type;
 				slug = FileCache.frontmatter.slug;
@@ -128,6 +132,8 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 			return {
 				markDownData,
 				nowFile,
+				emoji,
+				cover,
 				tags,
 				type,
 				slug,

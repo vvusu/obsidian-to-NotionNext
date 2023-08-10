@@ -28,6 +28,10 @@ Before installing the plugin, you must have set up the following:
     - password
     - icon
    
+In version 0.0.6, I also add the following contents:
+	- titleicon: the unique icon for each post, it can only support emoji currently. 
+	- cover url: the cover image for each post, it should be end with a type of image, such as .jpg, .png, .gif, etc.
+
 **If you've directly copied the NotionNext template, these contents should already exist. I've made changes to this plugin based on the original author's work. All you need to ensure is that your database has the above content, and every letter is in lowercase!!!**
 
 **⚠️⚠️⚠️: All headers are in lowercase!!! The order doesn't matter!**
@@ -50,6 +54,11 @@ If you don't want to use the template, you can also directly create a new file i
 # for example, if you donot want to set password, you can delete password: "1234" or set it to password: ""
 # 我已经在插件中设置了默认值，如果有不需要的选项，可以直接删除。
 # 例如你不需要密码选项，你可以将password: "1234"删除，或者将它设置为空。
+# !!!!!!!!!!!!
+# 现在阶段一定不要修改表头的名字， please do not change the name of the header in YAML front matter
+# !!!!!!!!!!!!
+titleicon: 📎 # emoji icon, default is 📜， 默认是📜
+coverurl: https://img.jxpeng.dev/2023/08/843e27a210847f05a0f7cfb121fec100.jpg # default is empty， 默认是空
 type: Post # Post or Page, default is Post， 默认是Post
 slug: test # slug for url, default is empty， 默认是空
 stats: Draft # Draft, Invisible, Published, default is Draft， 默认是Draft

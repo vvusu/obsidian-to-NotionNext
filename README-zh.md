@@ -27,6 +27,10 @@
     - password
     - icon
    
+在最新的0.0.6版本，我还增加了以下内容：
+- titleicon： 标题的emoji图标,暂时只能支持emoji
+- coverurl： 封面图片的url， url可以是任何一种图片的url， 例如jpg，png，svg等等。
+
 **如果你是直接复制的NotionNext的模板，这些内容应该已经有了。我在原作者的基础之上对本插件的内容进行了更改，所以你只需要保证你的数据库有如上内容，并且所有的字母都是小写！！！**
 
 
@@ -50,6 +54,11 @@
 # for example, if you donot want to set password, you can delete password: "1234" or set it to password: ""
 # 我已经在插件中设置了默认值，如果有不需要的选项，可以直接删除。
 # 例如你不需要密码选项，你可以将password: "1234"删除，或者将它设置为空。
+# !!!!!!!!!!!!
+# 现在阶段一定不要修改表头的名字， please do not change the name of the header in YAML front matter
+# !!!!!!!!!!!!
+titleicon: 📎 # emoji icon, default is 📜， 默认是📜
+coverurl: https://img.jxpeng.dev/2023/08/843e27a210847f05a0f7cfb121fec100.jpg # default is empty， 默认是空
 type: Post # Post or Page, default is Post， 默认是Post
 slug: test # slug for url, default is empty， 默认是空
 stats: Draft # Draft, Invisible, Published, default is Draft， 默认是Draft
