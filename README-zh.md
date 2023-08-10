@@ -11,6 +11,7 @@
 
 ### 准备安装
 在安装插件之前，你必须配置好了以下内容：
+
 1. 你的NotionNext数据库。
 2. 根据原作者的readme.md，配置好了Notion API，并且已经和你的NotionNext仓库关联。
 3. NotionNext Database ID
@@ -25,7 +26,10 @@
     - summary
     - password
     - icon
-   **如果你是直接复制的NotionNext的模板，这些内容应该已经有了。我在原作者的基础之上对本插件的内容进行了更改，所以你只需要保证你的数据库有如上内容，并且所有的字母都是小写！！！**
+   
+**如果你是直接复制的NotionNext的模板，这些内容应该已经有了。我在原作者的基础之上对本插件的内容进行了更改，所以你只需要保证你的数据库有如上内容，并且所有的字母都是小写！！！**
+
+
 **⚠️⚠️⚠️:表头全部小写！！！顺序无所谓！**
 
 ### 安装插件
@@ -64,7 +68,9 @@ Contents Below
 
 
 ---
+
 **以下为原README.md**
+
 非常感谢原作者的开发，我只是在原作者的基础之上进行了修改，增加了一些功能。如果你觉得这个插件对你有帮助，可以给[原作者](https://github.com/EasyChris/obsidian-to-notion)一个star。
 
 # Obsidian to Notion

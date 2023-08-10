@@ -1,5 +1,6 @@
 # Obsidian to NotionNext 
 [中文文档](README-zh.md)
+
 Thanks to the [original author](https://github.com/EasyChris/obsidian-to-notion) for developing such a useful plugin that can synchronize Obsidian to Notion. However, the original repository can only sync Name and Tags information. For those like me who use [NotionNext](https://github.com/tangly1024/NotionNext) to set up their website, this presents some limitations. Every time I import, I need to make a lot of modifications.
 
 Thus, based on the [original author's work](https://github.com/EasyChris/obsidian-to-notion), I've added a feature to match the [NotionNext](https://github.com/tangly1024/NotionNext) template. This way, you can edit directly in Obsidian and publish with a single click after organizing.
@@ -26,8 +27,10 @@ Before installing the plugin, you must have set up the following:
     - summary
     - password
     - icon
-      **If you've directly copied the NotionNext template, these contents should already exist. I've made changes to this plugin based on the original author's work. All you need to ensure is that your database has the above content, and every letter is in lowercase!!!**
-      **⚠️⚠️⚠️: All headers are in lowercase!!! The order doesn't matter!**
+   
+**If you've directly copied the NotionNext template, these contents should already exist. I've made changes to this plugin based on the original author's work. All you need to ensure is that your database has the above content, and every letter is in lowercase!!!**
+
+**⚠️⚠️⚠️: All headers are in lowercase!!! The order doesn't matter!**
 
 ### Plugin Installation
 1. Close Obsidian.
@@ -63,7 +66,9 @@ Usage of the template is as follows:
 ![](https://img.jxpeng.dev/2023/08/6063dd06eea4ee6939b5058dd129a698.gif)
 
 ---
+
 **Original README.md**
+
 Many Thanks for the original author's work. I've only made some changes to the original author's work. If you find this plugin useful, please give the [original author](https://github.com/EasyChris/obsidian-to-notion) a star.
 
 # Obsidian to Notion
