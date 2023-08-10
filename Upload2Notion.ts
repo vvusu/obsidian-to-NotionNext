@@ -19,7 +19,7 @@ export class Upload2Notion {
 			headers: {
 				'Content-Type': 'application/json',
 				'Authorization': 'Bearer ' + this.app.settings.notionAPI,
-				'Notion-Version': '2022-02-22',
+				'Notion-Version': '2022-06-28',
 			},
 			body: ''
 		})
