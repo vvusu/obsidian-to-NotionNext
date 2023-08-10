@@ -44,7 +44,7 @@ export class Upload2Notion {
 					title: [
 						{
 							text: {
-								content: title,
+								content: title
 							},
 						},
 					],
@@ -63,7 +63,7 @@ export class Upload2Notion {
 					rich_text: [
 						{
 							text: {
-								content: slug
+								content: slug || 'obsidian'
 							}
 						}
 					]
@@ -82,7 +82,7 @@ export class Upload2Notion {
 					rich_text: [
 						{
 							text: {
-								content: summary
+								content: summary || ''
 							}
 						}
 					]
