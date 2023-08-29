@@ -1,7 +1,7 @@
 import {App, Editor, MarkdownView, Notice, Plugin, PluginSettingTab, Setting} from "obsidian";
-import {addIcons} from 'icon';
-import {Upload2Notion} from "Upload2Notion";
-import {NoticeMConfig} from "Message";
+import {addIcons} from 'src/icon';
+import {Upload2Notion} from "src/Upload2Notion";
+import {NoticeMConfig} from "src/Message";
 
 
 // Remember to rename these classes and interfaces!
@@ -55,7 +55,7 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
-		this.addSettingTab(new SampleSettingTab(this.app, this));
+		this.addSettingTab(new ObsidianSettingTab(this.app, this));
 
 	}
 
@@ -152,7 +152,7 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 	}
 }
 
-class SampleSettingTab extends PluginSettingTab {
+class ObsidianSettingTab extends PluginSettingTab {
 	plugin: ObsidianSyncNotionPlugin;
 
 	constructor(app: App, plugin: ObsidianSyncNotionPlugin) {
@@ -165,15 +165,11 @@ class SampleSettingTab extends PluginSettingTab {
 
 		containerEl.empty();
 
-		containerEl.createEl("h2", {
-			text: "Settings for obsidian to NotionNext plugin.",
-		});
-
 		new Setting(containerEl)
 			.setName("Notion API Token")
 			.setDesc("It's a secret")
 			.addText((text) =>{
-				// t.inputEl.type = 'password'
+				text.inputEl.type = 'password';
 				return text
 					.setPlaceholder("Enter your Notion API Token")
 					.setValue(this.plugin.settings.notionAPI)
@@ -188,8 +184,8 @@ class SampleSettingTab extends PluginSettingTab {
 			.setName("Database ID")
 			.setDesc("It's a secret")
 			.addText((text) => {
-					// t.inputEl.type = 'password'
-				return text
+					text.inputEl.type = 'password';
+					return text
 					.setPlaceholder("Enter your Database ID")
 					.setValue(this.plugin.settings.databaseID)
 					.onChange(async (value) => {
@@ -197,7 +193,6 @@ class SampleSettingTab extends PluginSettingTab {
 						await this.plugin.saveSettings();
 					})
 			}
-
 			);
 
 			// notionDatabaseID.controlEl.querySelector('input').type='password'
