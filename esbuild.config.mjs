@@ -10,8 +10,7 @@ if you want to view the source, please visit the github repository of this plugi
 `;
 const prod = (process.argv[2] === 'production');
 
-(async () => {  // Enclose everything in an async function for using await
-	const ctx = await esbuild.context({
+const ctx = await esbuild.context({
 		banner: {
 			js: banner,
 		},
@@ -54,6 +53,6 @@ const prod = (process.argv[2] === 'production');
 	if (!prod) {
 		await ctx.watch();
 	} else {
-		await ctx.dispose();
+		await ctx.rebuild()
+		ctx.dispose().then(r => console.log('Build completed'), e => console.error(e));
 	}
-})().catch(() => process.exit(1));  // Use .catch here to handle any errors
