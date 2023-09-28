@@ -77,11 +77,10 @@ Contents Below
 
 ```
 模板使用如下：
-![](https://img.jxpeng.dev/2023/08/5ba5e7aeb86650c060c620786371717c.mp4)
+![](https://minioapi.pjx.ac.cn/img1/2023/09/354b950e5777b48832c2475e4a31f2cc.gif)
 
 **插件预览如下**
-![](https://img.jxpeng.dev/2023/08/7edefe36899b7431a65db891f429a137.mp4)
-
+![](https://minioapi.pjx.ac.cn/img1/2023/09/d6199619b68fab218fca8ae0cebece78.gif)
 
 ---
 

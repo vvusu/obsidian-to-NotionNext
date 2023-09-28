@@ -28,7 +28,7 @@ Before installing the plugin, you must have set up the following:
     - password
     - icon
    
-In version 0.0.6, I also add the following contents:
+From version 0.0.6, I also add the following contents:
 	- titleicon: the unique icon for each post, it can only support emoji currently. 
 	- cover url: the cover image for each post, it should be end with a type of image, such as .jpg, .png, .gif, etc.
 
@@ -76,10 +76,10 @@ Contents Below
 
 ```
 Usage of the template is as follows:
-![](https://img.jxpeng.dev/2023/08/189384bf03c562030f4828343e1b7a6c.gif)
+![](https://minioapi.pjx.ac.cn/img1/2023/09/354b950e5777b48832c2475e4a31f2cc.gif)
 
 **Plugin preview is shown below**
-![](https://img.jxpeng.dev/2023/08/6063dd06eea4ee6939b5058dd129a698.gif)
+![](https://minioapi.pjx.ac.cn/img1/2023/09/d6199619b68fab218fca8ae0cebece78.gif)
 
 ---
 
