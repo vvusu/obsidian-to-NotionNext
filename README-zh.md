@@ -2,6 +2,9 @@
 感谢[原作者](https://github.com/EasyChris/obsidian-to-notion)开发出了这么好用的插件，能够将obsidian同步到notion。 但是原仓库只能同步Name和Tags信息，如果像我一样通过[NotionNext](https://github.com/tangly1024/NotionNext)来搭建自己的网页，就有一些局限性。每次导入之后都需要进行大量的修改。
 
 所以我在[原作者](https://github.com/EasyChris/obsidian-to-notion)的基础之上，增加了匹配[NotionNext](https://github.com/tangly1024/NotionNext)模板的功能。这样可以直接在Obsidian编辑，整理好之后一键发布。
+## 更新说明
+### 0.1.7
+- [x] 删除了设置中`convert tags`的选项。 你现在可以直接添加tags，而不需要考虑是否开启tags选项。如果你不需要tags，可以直接删除tags选项或者留白。
 
 ## 使用方式
 ### 注意事项
@@ -37,6 +40,10 @@
 **⚠️⚠️⚠️:表头全部小写！！！顺序无所谓！**
 
 ### 安装插件
+#### 社区插件市场下载
+打开`Obsidian -> 设置 -> 社区插件 -> 浏览 -> 搜索Share to NotionNext`, 然后点击安装。
+
+#### 手动安装
 1. 关闭Obsidian
 2. 从Release下载插件文件，解压到你的obsidian插件目录下。
 3. 重新打开Obsidian，进入设置，启用插件。

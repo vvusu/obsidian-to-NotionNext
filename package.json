@@ -1,6 +1,6 @@
 {
   "name": "share-to-notionnext",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "type": "module",
   "description": "Shares obsidian md file to notion with notion api for NotionNext web deploy, originally created by EasyChris/obsidian-to-notion.",
   "main": "main.js",
@@ -27,6 +27,7 @@
     "@tryfabric/martian": "^1.2.0",
     "https-proxy-agent": "^7.0.1",
     "process": "^0.11.10",
+    "remark-math": "^6.0.0",
     "yaml": "^2.2.2",
     "yaml-front-matter": "^4.1.1"
   }

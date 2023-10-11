@@ -4,6 +4,10 @@
 Thanks to the [original author](https://github.com/EasyChris/obsidian-to-notion) for developing such a useful plugin that can synchronize Obsidian to Notion. However, the original repository can only sync Name and Tags information. For those like me who use [NotionNext](https://github.com/tangly1024/NotionNext) to set up their website, this presents some limitations. Every time I import, I need to make a lot of modifications.
 
 Thus, based on the [original author's work](https://github.com/EasyChris/obsidian-to-notion), I've added a feature to match the [NotionNext](https://github.com/tangly1024/NotionNext) template. This way, you can edit directly in Obsidian and publish with a single click after organizing.
+## Update
+### 0.1.7
+- [x] Removed the `convert tag` option. Now, you can directly add tags in the YAML front matter. If you don't want to add tags, you can delete the tags in the YAML front matter or leave the tags blank.
+
 
 ## How to Use
 ### Precautions
@@ -37,6 +41,10 @@ From version 0.0.6, I also add the following contents:
 **⚠️⚠️⚠️: All headers are in lowercase!!! The order doesn't matter!**
 
 ### Plugin Installation
+#### Install via Community Plugins
+Open `Obsidian settings -> Community Plugins -> Browse -> NotionNext -> Share to NotionNext`
+
+#### Mannually Install
 1. Close Obsidian.
 2. Download the plugin file from Release and unzip it into your Obsidian plugin directory.
 3. Re-open Obsidian, go to settings, and enable the plugin.

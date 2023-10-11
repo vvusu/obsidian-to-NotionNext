@@ -74,7 +74,7 @@ export default class ObsidianSyncNotionPlugin extends Plugin {
 				if (markDownData) {
 					const { basename } = nowFile;
 					const upload = new Upload2Notion(this);
-					const res = await upload.syncMarkdownToNotion(basename, allowTags, emoji, cover, tags, type, slug, stats, category, summary, paword, favicon, datetime, markDownData, nowFile, this.app, this.settings)
+					const res = await upload.syncMarkdownToNotion(basename, emoji, cover, tags, type, slug, stats, category, summary, paword, favicon, datetime, markDownData, nowFile, this.app, this.settings)
 					if(res.status === 200){
 						new Notice(`${langConfig["sync-success"]}${basename}`)
 					}else {
@@ -225,17 +225,17 @@ class ObsidianSettingTab extends PluginSettingTab {
 			);
 
 
-			new Setting(containerEl)
-			.setName("Convert tags(optional)")
-			.setDesc("Transfer the Obsidian tags to the Notion table. It requires the column with the name 'Tags'")
-			.addToggle((toggle) =>
-				toggle
-					.setValue(this.plugin.settings.allowTags)
-					.onChange(async (value) => {
-						this.plugin.settings.allowTags = value;
-						await this.plugin.saveSettings();
-					})
-			);
+			// new Setting(containerEl)
+			// .setName("Convert tags(optional)")
+			// .setDesc("Transfer the Obsidian tags to the Notion table. It requires the column with the name 'Tags'")
+			// .addToggle((toggle) =>
+			// 	toggle
+			// 		.setValue(this.plugin.settings.allowTags)
+			// 		.onChange(async (value) => {
+			// 			this.plugin.settings.allowTags = value;
+			// 			await this.plugin.saveSettings();
+			// 		})
+			// );
 
 	}
 }

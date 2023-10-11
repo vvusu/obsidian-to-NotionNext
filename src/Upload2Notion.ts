@@ -47,7 +47,7 @@ export class Upload2Notion {
 
 	// 因为需要解析notion的block进行对比，非常的麻烦，
 	// 暂时就直接删除，新建一个page
-	async updatePage(notionID: string, title: string, allowTags: boolean, emoji: string, cover: string, tags: string[], type: string, slug: string, stats: string, category: string, summary: string, paword: string, favicon: string, datetime: string, childArr: any) {
+	async updatePage(notionID: string, title: string, emoji: string, cover: string, tags: string[], type: string, slug: string, stats: string, category: string, summary: string, paword: string, favicon: string, datetime: string, childArr: any) {
 		await this.deletePage(notionID)
 
 		const databasecover = await this.getDataBase(this.plugin.settings.databaseID)
@@ -56,10 +56,22 @@ export class Upload2Notion {
 			cover = databasecover
 		}
 
-		return await this.createPage(title, allowTags, emoji, cover, tags, type, slug, stats, category, summary, paword, favicon, datetime, childArr)
+		return await this.createPage(title,
+			emoji,
+			cover,
+			tags,
+			type,
+			slug,
+			stats,
+			category,
+			summary,
+			paword,
+			favicon,
+			datetime,
+			childArr)
 	}
 
-	async createPage(title: string, allowTags: boolean, emoji: string, cover: string, tags: string[], type: string, slug: string, stats: string, category: string, summary: string, pawrod: string, favicon: string, datetime: string, childArr: any) {
+	async createPage(title: string, emoji: string, cover: string, tags: string[], type: string, slug: string, stats: string, category: string, summary: string, pawrod: string, favicon: string, datetime: string, childArr: any) {
 		const bodyString: any = {
 			parent: {
 				database_id: this.plugin.settings.databaseID
@@ -78,7 +90,7 @@ export class Upload2Notion {
 					],
 				},
 				tags: {
-					multi_select: allowTags && tags !== undefined ? tags.map(tag => {
+					multi_select: tags && true ? tags.map(tag => {
 						return { "name": tag }
 					}) : [],
 				},
@@ -176,7 +188,7 @@ export class Upload2Notion {
 		}
 	}
 
-	async syncMarkdownToNotion(title: string, allowTags: boolean, emoji: string, cover: string, tags: string[], type: string, slug: string, stats: string, category: string, summary: string, paword: string, favicon: string, datetime: string, markdown: string, nowFile: TFile, app: App, settings: any): Promise<any> {
+	async syncMarkdownToNotion(title: string, emoji: string, cover: string, tags: string[], type: string, slug: string, stats: string, category: string, summary: string, paword: string, favicon: string, datetime: string, markdown: string, nowFile: TFile, app: App, settings: any): Promise<any> {
 		let res: any
 		const yamlContent: any = yamlFrontMatter.loadFront(markdown);
 		const __content = yamlContent.__content
@@ -185,9 +197,9 @@ export class Upload2Notion {
 		const notionID = frontmasster ? frontmasster.notionID : null
 
 		if (notionID) {
-			res = await this.updatePage(notionID, title, allowTags, emoji, cover, tags, type, slug, stats, category, summary, paword, favicon, datetime, file2Block);
+			res = await this.updatePage(notionID, title, emoji, cover, tags, type, slug, stats, category, summary, paword, favicon, datetime, file2Block);
 		} else {
-			res = await this.createPage(title, allowTags, emoji, cover, tags, type, slug, stats, category, summary, paword, favicon, datetime, file2Block);
+			res = await this.createPage(title, emoji, cover, tags, type, slug, stats, category, summary, paword, favicon, datetime, file2Block);
 		}
 		if (res.status === 200) {
 			await this.updateYamlInfo(markdown, nowFile, res, app, settings)
