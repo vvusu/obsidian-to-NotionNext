@@ -266,8 +266,8 @@ class ObsidianSettingTab extends PluginSettingTab {
 			);
 
 		new Setting(containerEl)
-			.setName("Notion Link(optional)")
-			.setDesc("Add Your notion Link(optional)")
+			.setName("Add Notion Link(optional)")
+			.setDesc("Add Notion link to file(optional)")
 			.addToggle((toggle) =>
 				toggle
 					.setValue(this.plugin.settings.notionLink)
