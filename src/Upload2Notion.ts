@@ -227,9 +227,10 @@ export class Upload2Notion {
 			// add new notionID and link 
 			yamlContent.notionID = id;
 			if (notionLink) {
-				yamlContent.link = url;
-			} else {
-				yamlContent.link = null;
+				if (yamlContent['notionLink']) {
+					delete yamlContent['notionLink']
+				}
+				yamlContent.notionLink = url;
 			}
 		});
 
