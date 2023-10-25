@@ -212,7 +212,7 @@ export class Upload2Notion {
 	async updateYamlInfo(yamlContent: string, nowFile: TFile, res: any, app: App, settings: any) {
 		let { url, id } = res.json
 		// replace www to notionID
-		const { notionID } = settings;
+		const { notionID, notionLink } = settings;
 		if (notionID !== "") {
 			// replace url str "www" to notionID
 			url = url.replace("www.notion.so", `${notionID}.notion.site`)
@@ -226,7 +226,11 @@ export class Upload2Notion {
 			}
 			// add new notionID and link 
 			yamlContent.notionID = id;
-			yamlContent.link = url;
+			if (notionLink) {
+				yamlContent.link = url;
+			} else {
+				yamlContent.link = null;
+			}
 		});
 
 		try {
